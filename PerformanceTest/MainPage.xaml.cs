@@ -18,13 +18,17 @@ namespace PerformanceTest
 
         private ObservableCollection<string> Console { get; } = new ObservableCollection<string>();
 
-        private void StartTest_Click(object sender, RoutedEventArgs e)
+        private async void StartTest_Click(object sender, RoutedEventArgs e)
         {
-            Test1();
-            Test2();
+            button.IsEnabled = false;
+            ProgressBar.Visibility = Visibility.Visible;
+            await Test1();
+            await Test2();
+            ProgressBar.Visibility = Visibility.Collapsed;
+            button.IsEnabled = true;
         }
 
-        private async void Test1()
+        private async Task Test1()
         {
             Console.Add("Instantiating 10000 C++/CX objects from C#");
             var stopWatch = new Stopwatch();
@@ -41,7 +45,7 @@ namespace PerformanceTest
             Console.Add($"Done in {stopWatch.Elapsed}");
         }
 
-        private async void Test2()
+        private async Task Test2()
         {
             Console.Add("Instantiating 10000 C++/CX objects from C++/CX WRC");
 
