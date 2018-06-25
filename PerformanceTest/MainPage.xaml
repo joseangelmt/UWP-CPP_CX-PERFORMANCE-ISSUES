@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="PerformanceTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PerformanceTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="C# vs C++/CX cross boundaries performance test" FontSize="24" FontWeight="Bold" Margin="10"/>
+        <Button Grid.Row="1" Content="Start test" Click="StartTest_Click" Margin="10"/>
+        <ScrollViewer Grid.Row="2">
+                <ItemsControl ItemsSource="{x:Bind Console, Mode=OneWay}" Margin="10">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" Foreground="White" FontFamily="Consolas"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
