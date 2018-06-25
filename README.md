@@ -7,7 +7,7 @@ There are three projects in the solution:
 * WindowsRuntimeComponent1 (C++/CX WRC that exposes an empty `Class1` class).
 * WindowsRuntimeComponent2 (C++/CX WRC that exposes a factory with a static method that returns a new `WindowsRuntimeComponent1.Class1` object.
 
-When you run the application, you've a button to start the tests. When you press it the two tests starts simultaneously:
+When you run the application, you've a button to start the tests. When you press it the two tests starts:
 
 * Creating 10000 `WindowsRuntimeComponent1.Class1` objects directly from C#. Because WindowsRuntimeComponent1 is a C++/CX project, there are cross-boundaries operations.
 * Creating 10000 `WindowsRuntimeComponent1.Class1` objects indirectly using the factory `WindowsRuntimeComponent2.Factory` so there are cross-boundaries operations from the application to WindowsRuntimeComponent2 too, so the performance penalty because of the cross-boundaries operations should be the same.
