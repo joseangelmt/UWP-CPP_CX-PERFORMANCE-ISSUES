@@ -1,5 +1,8 @@
 # UWP-CPP_CX-PERFORMANCE-ISSUES
-This respository contains an application to measure the performance instantiating WinRT objects from C# and from a C++/CX Windows Runtime Component.
+
+This repository was created for the next question in StackOverflow: https://stackoverflow.com/questions/51018526/bad-performance-instantiating-winrt-objects-from-a-c-cx-windows-runtime-compon
+
+The respository contains an application to measure the performance instantiating WinRT objects from C# and from a C++/CX Windows Runtime Component.
 
 There are three projects in the solution:
 
