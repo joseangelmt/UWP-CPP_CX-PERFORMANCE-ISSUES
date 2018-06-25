@@ -8,3 +8,8 @@ WindowsRuntimeComponent1::Class1^ Factory::CreateObject()
 {
 	return ref new WindowsRuntimeComponent1::Class1();
 }
+
+WindowsRuntimeComponent1::Class1^ Factory::CreateNullObject()
+{
+	return nullptr;
+}

@@ -10,6 +10,7 @@ There are three projects in the solution:
 When you run the application, you've a button to start the tests. When you press it the two tests starts simultaneously:
 
 * Creating 10000 `WindowsRuntimeComponent1.Class1` objects directly from C#. Because WindowsRuntimeComponent1 is a C++/CX project, there are cross-boundaries operations.
-* Creating 10000 `WindowsRuntimeComponent1.Class1` objects indirectly using the factory `WindowsRuntimeComponent2.Factory` so there are cross-boundaries operations from the application to WindowsRuntimeComponent2 too, so the performance less because of the cross-boundaries operations should be the same.
+* Creating 10000 `WindowsRuntimeComponent1.Class1` objects indirectly using the factory `WindowsRuntimeComponent2.Factory` so there are cross-boundaries operations from the application to WindowsRuntimeComponent2 too, so the performance penalty because of the cross-boundaries operations should be the same.
+* Creating 10000 `null` objects indirectly using the factory `WindowsRuntimeComponent2.Factory` so there are cross-boundaries operations from the application to WindowsRuntimeComponent2 too but there is not instantiation of any WinRT object from the component.
 
-The result is that in my computer the first test takes about 0.39 seconds to finish and the second one about 25 seconds.
+The result is that in my computer the first test takes about **0.39 seconds** to finish and the second one about **25 seconds** and the third one about **0.006 seconds**.

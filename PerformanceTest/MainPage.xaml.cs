@@ -24,6 +24,7 @@ namespace PerformanceTest
             ProgressBar.Visibility = Visibility.Visible;
             await Test1();
             await Test2();
+            await Test3();
             ProgressBar.Visibility = Visibility.Collapsed;
             button.IsEnabled = true;
         }
@@ -47,7 +48,7 @@ namespace PerformanceTest
 
         private async Task Test2()
         {
-            Console.Add("Instantiating 10000 C++/CX objects from C++/CX WRC");
+            Console.Add("Instantiating 10000 C++/CX objects from C++/CX WRC Factory");
 
             var stopWatch = new Stopwatch();
 
@@ -57,6 +58,24 @@ namespace PerformanceTest
                 var list = new List<Class1>();
                 for (int i = 0; i < 100000; i++)
                     list.Add(Factory.CreateObject());
+                stopWatch.Stop();
+            });
+
+            Console.Add($"Done in {stopWatch.Elapsed}");
+        }
+
+        private async Task Test3()
+        {
+            Console.Add("Instantiating 10000 null objects from C++/CX WRC Factory");
+
+            var stopWatch = new Stopwatch();
+
+            await Task.Run(() =>
+            {
+                stopWatch.Start();
+                var list = new List<Class1>();
+                for (int i = 0; i < 100000; i++)
+                    list.Add(Factory.CreateNullObject());
                 stopWatch.Stop();
             });
 

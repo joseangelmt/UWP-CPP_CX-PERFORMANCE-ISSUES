@@ -6,5 +6,6 @@ namespace WindowsRuntimeComponent2
     {
     public:
 		static WindowsRuntimeComponent1::Class1^ CreateObject();
-    };
+		static WindowsRuntimeComponent1::Class1^ CreateNullObject();
+	};
 }
